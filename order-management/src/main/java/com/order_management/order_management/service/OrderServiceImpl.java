@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -38,10 +39,10 @@ public class OrderServiceImpl implements OrderService {
             if (Objects.isNull(orderId) || Objects.isNull(orderDTO.getUserId()))
                 throw new RuntimeException("Invalid Details");
 
-            Order order = orderRepository.findByOrderIdAndUserId(orderId, orderDTO.getUserId())
-                    .orElseThrow(() -> new RuntimeException("Invalid Details"));
-            order.setIsCancelled(true);
-            orderRepository.save(order);
+//            Order order = orderRepository.findByOrderIdAndUserId(orderId, orderDTO.getUserId())
+//                    .orElseThrow(() -> new RuntimeException("Invalid Details"));
+//            order.setIsCancelled(true);
+//            orderRepository.save(order);
         } catch (Exception e) {
             throw e;
         }
@@ -62,10 +63,11 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public List<OrderDTO> getAllOrders(Long userId) {
         try {
-            if (Objects.isNull(userId))
-                return Collections.emptyList();
-            List<Order> orders =  orderRepository.findAllUserId(userId);
-            return orders.stream().map(this::build).collect(Collectors.toList());
+//            if (Objects.isNull(userId))
+//                return Collections.emptyList();
+//            List<Order> orders =  orderRepository.findAllUserId(userId);
+//            return orders.stream().map(this::build).collect(Collectors.toList());
+            return new ArrayList<>();
         } catch (Exception e) {
             throw e;
         }

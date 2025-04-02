@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.Optional;
 
 public interface OrderRepository extends JpaRepository<Order, Long> {
-    Optional<Order> findByOrderIdAndUserId(Long orderId, Long userId);
+//    Optional<Order> findByOrderIdAndUserId(Long id, Long userId);
 
     @Query(value = "Select * from order where user_id=:userId and is_cancelled=false and delivered_on is null", nativeQuery = true)
     List<Order> findAllActiveOrders(Long userId);
 
-    List<Order> findAllUserId(Long userId);
+//    List<Order> findAllUserId(Long userId);
 }

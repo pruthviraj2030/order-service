@@ -18,7 +18,7 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("v1/cart")
+@RequestMapping("/v1/cart")
 public class CartController {
 
     private final CartService cartService;
@@ -32,7 +32,7 @@ public class CartController {
         }
     }
 
-    @GetMapping("user/{userId}/getAllItems")
+    @GetMapping("/user/{userId}/getAllItems")
     public ResponseEntity<List<CartDto>> getAllCartItems(@PathVariable Long userId){
         try {
             return new ResponseEntity<>(cartService.getAllCartItems(userId), HttpStatus.OK);

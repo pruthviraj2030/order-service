@@ -51,7 +51,7 @@ public class DeliveryAddressServiceImpl implements DeliveryAddressService {
 
                 if (BooleanUtils.isTrue(deliveryAddressRequest.isDefault)) {
 
-                    deliveryAddressRepository.findByIdAndIsDefault(deliveryAddressRequest.getId())
+                  //  deliveryAddressRepository.findByIdAndIsDefault(deliveryAddressRequest.getId());
                     deliveryAddress.setIsDefault(true);
                 }
             }
